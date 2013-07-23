@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import Queue
 import random
 import collections
 import multiprocessing
@@ -224,6 +225,10 @@ def local_search(graph, timeout=60):
 	unsatisfied_constraints = set()
 	C = max(solution)
 
+	# cas limites de C == 0 ou C == 1
+	if C < 1 or (C == 1 and max(graph) > 0):
+	    raise ValueError("C == {0}".format(C))
+
 	# suppression des noeuds de couleur C
 	for node in xrange(nodeCount):
 	    if solution[node] == C:
@@ -268,7 +273,7 @@ def local_search(graph, timeout=60):
     try:
         while True:
 	   solution = local_improvement(solution)
-    except TimeoutException:
+    except (TimeoutException, Queue.Empty):
         pass
 
     return solution
