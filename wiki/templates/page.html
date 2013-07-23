@@ -1,0 +1,6 @@
+    <!-- wiki content -->
+    <h1>{{page.path}}</h1>
+    {% if page_error %}
+    <h3><div class="error">{{page_error}}</div></h3>
+    {% endif %}
+    {{page.content|e}}

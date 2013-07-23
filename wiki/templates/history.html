@@ -1,0 +1,16 @@
+    <!-- wiki content -->
+    <table border="0">
+      <tr>
+        <th>current</th>
+        <th>{{page.content[:105]}}</th>
+        <th><a href={{'/wiki/page/{0}'.format(page.path)}}>view</a></th>
+      </tr>
+      {% for i, version in history %}
+      <tr>
+        <th>{{i}}.</th>
+        <th>{{version.content[:105]}}</th>
+        <!--th>{% if signed_in %}<a href={{"/HW7/wiki/_edit"+page.path+'?version='}}{{version}}>{% endif %}edit{% if logged_in %}</a>{% endif %}</th-->
+        <th><a href={{'/wiki/archive/{0}?version={1}'.format(page.path, version.version)}}>view</a></th>
+      </tr>
+      {% endfor %}
+    </table>

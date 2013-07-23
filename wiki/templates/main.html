@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>wiki</title>
+    <link rel ="stylesheet" type="text/css" href="/static/style.css">
+  </head>
+  <body>
+    <div class="login-area">{% if signed_in %}user: {{usr}} | <a  href="/wiki/sign_out">sign out</a>{% else %}<a href="/wiki/sign_in">sign in</a> | <a href="/wiki/sign_up">sign up{% endif %}</a></div>
+    <br><hr><br><br><br>
+    <h1>Wiki app</h1>
+    <h3>with Google App Engine and Jinja2</h3>
+    <h3>Routes:</h3>
+    <ul>
+      <li>A page url is: app/wiki/page/name_of_the_page</li>
+      <li>To edit it:    app/wiki/edit/name_of_the_page</li>
+      <li>To view its history: app/wiki/history/name_of_the_page</li>
+      <li>To view an archive:  app/wiki/archive/name_of_the_page?version=your_selected_version</li>
+    </ul>
+    <h3>Default behavior:</h3>
+    <ul>
+      <li>Signing in/up/out redirects here.</li>
+      <li>If an entry does not exists, redirects to its edit page.</li>
+    </ul>
+  </body>
+</html>

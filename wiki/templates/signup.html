@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Signup</title>
+    <link rel ="stylesheet" type="text/css" href="/static/style.css">
+  </head>
+  <body>
+    <h1>/sign_up</h1>
+      {% if signed_in == True %}
+      <br><div class="error">You are currently signed in as <b>{{usr}}</b>. You must <a href="/wiki/sign_out">sign out</a> before signing up.</div>
+      {{kwargs}}
+      {% else %}
+      <form method=post>
+        <div>Username:     </div><input type=text name="username">
+        <br><br>
+        <div>Password:     </div><input type=password name="password">
+        <br><br>
+        <div>Password (2):   </div><input type=password name="verify">
+        <br><br>
+        <div>E-Mail (optional):</div><input type=text name="email">
+        <br><br>
+        <input type="submit">
+      </form>
+      {% if information_error == True %}
+      <br><div class="error">You sent incorrect information.</div>
+      {% endif %}      
+      {% endif %}      
+  </body>
+</html>

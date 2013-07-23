@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>wiki{%if page.path != '' %} : {{page.path}}{% endif %}</title>
+    <link rel ="stylesheet" type="text/css" href="/static/style.css">
+  </head>
+  <body>
+    <div class="login-area">{% if signed_in %}<a href={{"/wiki/edit/"+page.path}}>{% endif %}edit{% if signed_in %}</a>{% endif %} | <a href={{"/wiki/history/"+page.path}}>history</a> -- {% if signed_in %}user: {{usr}} | <a  href="/wiki/sign_out">sign out</a>{% else %}<a href="/wiki/sign_in">sign in</a> | <a href="/wiki/sign_up">sign up{% endif %}</a></div>
+    <br><hr><br><br><br>
+
